@@ -2,7 +2,7 @@
 Built in 72 h for *Google DeepMind – Vibe Code with Gemini 3 Pro*  
 *Drop a photo, speak or type → your life is organised.*
 
-![Hero screenshot](./data/image.png)
+![Hero screenshot](./data/img.png)
 
 *Figure 1: Glassmorphism UI with smart conflict radar*
 
