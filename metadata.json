@@ -1,0 +1,7 @@
+{
+  "name": "AI Life Planner",
+  "description": "An AI-powered smart calendar that analyses document or chat, create organized events, and export to google calendar possible.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Life Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'planner-blue': '#9CC6DB',
+              'planner-cream': '#FCF6D9',
+              'planner-rust': '#CF4B00',
+              'planner-sand': '#DDBA7D',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Playfair Display', 'serif'],
+            },
+            backgroundImage: {
+              'gradient-warm': 'linear-gradient(135deg, #CF4B00, #DDBA7D)',
+              'gradient-cool': 'linear-gradient(135deg, #9CC6DB, #FCF6D9)',
+              'gradient-glow': 'radial-gradient(circle at center, rgba(221,186,125,0.4) 0%, transparent 70%)',
+            },
+            animation: {
+                'float-slow': 'float 10s ease-in-out infinite',
+                'float-medium': 'float 7s ease-in-out infinite',
+                'float-fast': 'float 5s ease-in-out infinite',
+                'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+            },
+            keyframes: {
+                fadeInUp: {
+                    '0%': { opacity: '0', transform: 'translateY(10px) translateX(-50%)' },
+                    '100%': { opacity: '1', transform: 'translateY(0) translateX(-50%)' },
+                },
+                float: {
+                    '0%': { transform: 'translateY(0px) rotate(0deg)' },
+                    '33%': { transform: 'translateY(-15px) rotate(2deg)' },
+                    '66%': { transform: 'translateY(5px) rotate(-2deg)' },
+                    '100%': { transform: 'translateY(0px) rotate(0deg)' },
+                }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f8f8;
+        color: #2D3748;
+        overflow-x: hidden;
+      }
+      
+      /* Sophisticated Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px; /* Slightly wider for better usability */
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #9CC6DB; /* New requested color */
+        border-radius: 10px;
+        border: 2px solid rgba(255,255,255,0.5); /* Adds a border to make it look floating */
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #7aaec9; 
+      }
+
+      /* Glassmorphism Utilities - No Shadows */
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: none; /* Removed shadow */
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: none; /* Removed shadow */
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .glass-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.95);
+        border-color: rgba(255, 255, 255, 0.9);
+        box-shadow: none; /* Removed shadow on hover too */
+      }
+
+      /* Mesh Gradient Background Animation */
+      .mesh-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        background: 
+          radial-gradient(at 0% 0%, hsla(28,100%,74%,0.4) 0px, transparent 50%),
+          radial-gradient(at 100% 0%, hsla(202,100%,85%,0.5) 0px, transparent 50%),
+          radial-gradient(at 100% 100%, hsla(38,100%,74%,0.4) 0px, transparent 50%),
+          radial-gradient(at 0% 100%, hsla(202,100%,85%,0.5) 0px, transparent 50%);
+        filter: blur(60px);
+        opacity: 0.8;
+      }
+
+      @keyframes slideIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-slide-in {
+        animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .text-gradient {
+        background: linear-gradient(135deg, #CF4B00, #DDBA7D);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "date-fns": "https://esm.sh/date-fns@3.3.1",
+    "react-dom": "https://esm.sh/react-dom@^19.2.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
